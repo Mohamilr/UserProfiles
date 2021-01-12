@@ -46,7 +46,7 @@ const ProfileCard = () => {
 
   return (
     <div>
-      <Search profiles={profiles} />
+      <Search setProfiles={setProfiles} profiles={profiles} />
       <div className="m-auto w-3/4 flex flex-col md:grid md:grid-cols-2 md:gap-4 md:w-1/2">
         {currentData.map((profile, index) => (
           <div key={index}>
