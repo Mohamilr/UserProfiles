@@ -67,6 +67,7 @@ const Search = ({
     setInputs(e.target.value);
     if (e.target.value.length === 0) {
       setFilterStatus(false);
+      setFilterFeedback(false);
     }
 
     if (values.length <= 1 || values.length > 2) {
