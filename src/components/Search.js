@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     width: 500,
+    [theme.breakpoints.down('sm')]: {
+    width: 300,
+    },
   },
   input: {
     marginLeft: theme.spacing(1),
