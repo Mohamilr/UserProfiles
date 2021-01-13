@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "./Pagination";
 import Modal from "./Modal";
-import Search from './Search';
-
+import Search from "./Search";
 
 const ProfileCard = () => {
   const [profiles, setProfiles] = useState([]);
   const [currentData, setCurrentData] = useState([]);
   const [singleProfile, setSingleProfile] = useState([]);
+
+  //
+  const [filtered, setFiltered] = useState([]);
+  const [filterStatus, setFilterStatus] = useState(false);
+  const [filterFeedBack, setFilterFeedback] = useState(false);
 
   //   Modal
   const [open, setOpen] = React.useState(false);
@@ -46,7 +50,23 @@ const ProfileCard = () => {
 
   return (
     <div>
-      <Search setProfiles={setProfiles} profiles={profiles} />
+      <div className="m-auto w-1/2 flex justify-center">
+        <Search
+          setFiltered={setFiltered}
+          profiles={profiles}
+          setFilterStatus={setFilterStatus}
+          setFilterFeedback={setFilterFeedback}
+        />
+      </div>
+      <div>
+        {filterFeedBack ? (
+          <h1 className="text-center text-md font-bold m-4">
+            No results found
+          </h1>
+        ) : (
+          ""
+        )}
+      </div>
       <div className="m-auto w-3/4 flex flex-col md:grid md:grid-cols-2 md:gap-4 md:w-1/2">
         {currentData.map((profile, index) => (
           <div key={index}>
@@ -76,7 +96,11 @@ const ProfileCard = () => {
         ))}
       </div>
       <Modal modalProp={modalProp} profile={singleProfile} />
-      <Pagination setCurrentData={setCurrentData} data={profiles} />
+      {filterStatus ? (
+        <Pagination setCurrentData={setCurrentData} data={filtered} />
+      ) : (
+        <Pagination setCurrentData={setCurrentData} data={profiles} />
+      )}
     </div>
   );
 };
