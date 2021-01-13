@@ -1,5 +1,5 @@
 import React from "react";
-// import ''
+
 const ModalData = ({ profile }) => {
   let first;
   let second;
@@ -27,18 +27,44 @@ const ModalData = ({ profile }) => {
         className="m-auto w-1/2 h-auto rounded-lg text-white p-4 mb-4"
         style={{ backgroundColor: "#373a4b" }}
       >
-        {profile.CreditCardType === 'MasterCard' ? (
-          <img src="https://res.cloudinary.com/project-s/image/upload/v1610396196/mastercard_m0ijpe.png" alt="mastercard" className="w-12" />
-        ): profile.CreditCardType === 'Visa' ? (
-          <img src="https://res.cloudinary.com/project-s/image/upload/v1610396196/visa_logo_ijnmof.webp" alt="visa" className="w-12" />
-        ): profile.CreditCardType === 'PayPal' ? (
-          <img src="https://res.cloudinary.com/project-s/image/upload/v1610396196/paypal_logo_ig2inr.jpg" alt="paypal" className="w-12" />
-        ): (
-         <p className="w-12">{profile.CreditCardType}</p>
-        )}
+        <div className="w-12 h-12 bg-white my-4"></div>
         <p className="py-3">{`${first} ${second} ${third} ${fourth}`}</p>
-        <p className="font-light text-sm opacity-50">Card holder</p>
-        <p className="text-sm">{`${profile.FirstName} ${profile.LastName}`}</p>
+
+        <div className="flex justify-between">
+          <div>
+            <p className="font-light text-sm opacity-50">Card holder</p>
+            <p className="text-sm">{`${profile.FirstName} ${profile.LastName}`}</p>
+          </div>
+          <div className="pr-4">
+            {profile.CreditCardType === "MasterCard" ? (
+              <img
+                src="https://res.cloudinary.com/project-s/image/upload/v1610396196/mastercard_m0ijpe.png"
+                alt="mastercard"
+                className="w-12"
+              />
+            ) : profile.CreditCardType === "Visa" ? (
+              <img
+                src="https://res.cloudinary.com/project-s/image/upload/v1610396196/visa_logo_ijnmof.webp"
+                alt="visa"
+                className="w-12"
+              />
+            ) : profile.CreditCardType === "PayPal" ? (
+              <img
+                src="https://res.cloudinary.com/project-s/image/upload/v1610396196/paypal_logo_ig2inr.jpg"
+                alt="paypal"
+                className="w-12"
+              />
+            ) : profile.CreditCardType === "JCB" ? (
+              <img
+                src="https://res.cloudinary.com/project-s/image/upload/v1610486334/jcb-removebg-preview_wemmmj.png"
+                alt="jcb"
+                className="w-12"
+              />
+            ) : (
+              <p className="w-12">{profile.CreditCardType}</p>
+            )}
+          </div>
+        </div>
       </div>
       <div className="divide-y-4 divide-solid divide-gray-10">
         <div className="flex justify-between py-2">
