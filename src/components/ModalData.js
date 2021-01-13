@@ -24,7 +24,7 @@ const ModalData = ({ profile }) => {
   return (
     <div>
       <div
-        className="m-auto w-1/2 h-auto rounded-lg text-white p-4 mb-4"
+        className="m-auto w-full md:w-1/2 h-auto rounded-lg text-white p-4 mb-4 "
         style={{ backgroundColor: "#373a4b" }}
       >
         <div className="w-12 h-12 bg-white my-4"></div>
